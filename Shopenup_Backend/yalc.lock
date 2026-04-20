@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "packages": {
+    "@shopenup/shopenup-plugin-documents": {
+      "signature": "96d0d30107f0893e63d0fe53f2c092a4",
+      "file": true,
+      "replaced": "file:../../../TestInvoice/shopenup-plugin-document/shopenup-shopenup-plugin-documents-0.0.12.tgz"
+    },
+    "@shopenup/logistic": {
+      "signature": "6cf6cfd3f54cc4cb8444c4a0a749c52b",
+      "file": true
+    }
+  }
+}

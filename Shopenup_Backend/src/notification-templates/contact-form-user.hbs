@@ -1,0 +1,27 @@
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background-color:#f4f4f4;color:#333;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center" style="padding:20px 0;">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          <tr>
+            <td style="background-color:#1a1a1a;color:#ffffff;text-align:center;padding:24px 20px;font-size:20px;font-weight:bold;">
+              We received your message
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px 30px;">
+              <p style="margin:0 0 12px 0;font-size:16px;">Hi {{name}},</p>
+              <p style="margin:0 0 20px 0;font-size:15px;line-height:1.5;">Thank you for contacting us. Here is a copy of what you sent:</p>
+              <p style="margin:0 0 8px 0;font-size:14px;color:#6b7280;"><strong>Subject:</strong> {{subject}}</p>
+              <p style="margin:0 0 16px 0;font-size:14px;padding:14px;background-color:#f9fafb;border-radius:8px;line-height:1.5;white-space:pre-wrap;">{{message}}</p>
+              <p style="margin:0;font-size:14px;line-height:1.5;">Our team will get back to you as soon as possible.</p>
+              {{#if store_name}}
+              <p style="margin:24px 0 0 0;font-size:12px;color:#6b7280;">— {{store_name}}{{#if store_url}} · <a href="{{store_url}}" style="color:#6b7280;">Visit store</a>{{/if}}</p>
+              {{/if}}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>

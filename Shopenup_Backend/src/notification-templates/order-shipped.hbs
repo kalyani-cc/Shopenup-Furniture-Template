@@ -1,0 +1,135 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+            
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#CD8973; color:#ffffff; text-align:center; padding:30px 20px; font-size:26px; font-weight:bold;">
+                Your Order Has Shipped! 🚚
+              </td>
+            </tr>
+            
+            <!-- Greeting -->
+            <tr>
+              <td style="padding:25px 30px;">
+                <p style="font-size:18px; margin:0 0 10px 0;">Hi {{first_name}},</p>
+                <p style="margin:0 0 20px 0;">Good news! Your order <strong>#{{order_display_id}}</strong> has been shipped.</p>
+
+                <!-- Tracking Information Box -->
+                {{#if tracking_id}}
+                <div style="background-color:#f9f9f9; border-left:4px solid #CD8973; padding:20px; margin:20px 0; border-radius:5px;">
+                  <h3 style="margin:0 0 15px 0; color:#CD8973; font-size:20px;">📦 Track Your Shipment</h3>
+                  <p style="margin:5px 0; font-size:16px; line-height:1.8;">
+                    {{#if awb_code}}
+                    <strong>AWB Code:</strong> <span style="font-family:monospace; font-size:18px; color:#333;">{{awb_code}}</span><br/>
+                    {{/if}}
+                    <strong>Tracking Number:</strong> 
+                    {{#if tracking_url}}
+                      <a href="{{tracking_url}}" style="color:#CD8973; text-decoration:none; font-weight:bold;">{{tracking_id}}</a>
+                    {{else}}
+                      {{tracking_id}}
+                    {{/if}}<br/>
+                    <strong>Carrier:</strong> {{carrier}}<br/>
+                    {{#if shiprocket_tracking_url}}
+                    <div style="text-align:center; margin-top:15px;">
+                      <a href="{{shiprocket_tracking_url}}" 
+                         style="display:inline-block; background-color:#CD8973; color:#ffffff; padding:12px 30px; text-decoration:none; border-radius:5px; font-weight:bold; font-size:16px;">
+                        Track on Shiprocket →
+                      </a>
+                    </div>
+                    {{/if}}
+                  </p>
+                </div>
+                {{/if}}
+
+                <!-- Shipping Details -->
+                <div style="background-color:#f9f9f9; padding:15px; margin:20px 0; border-radius:5px;">
+                  <h3 style="margin:0 0 10px 0; color:#CD8973; font-size:18px;">🚚 Shipping Details</h3>
+                  <p style="margin:5px 0; font-size:15px; line-height:1.6;">
+                    
+                    <strong>Shipping Address:</strong><br/>
+                    <span style="display:block; margin-top:5px; padding-left:10px;">
+                      
+                      {{shipping_address}}
+                    </span>
+                    {{#if phone}}
+                    <strong>Contact:</strong> {{phone}}<br/>
+                    {{/if}}
+                    {{#if estimated_delivery}}
+                    <strong>Estimated Delivery:</strong> {{estimated_delivery}}
+                    {{/if}}
+                  </p>
+                </div>
+
+                <!-- Order Items Table -->
+                <h3 style="margin-bottom:10px; color:#CD8973; font-size:20px;">Your Items</h3>
+                <table width="100%" cellpadding="8" cellspacing="0" border="0"
+                  style="border:1px solid #eee; margin-bottom:20px; border-collapse:collapse; font-size:15px;">
+                  <thead>
+                    <tr style="background-color:#f9f9f9; text-align:left;">
+                      <th style="border:1px solid #eee; padding:8px;">Product</th>
+                      <th style="border:1px solid #eee; padding:8px;">Qty</th>
+                      <th style="border:1px solid #eee; padding:8px; text-align:right;">Price</th>
+                      <th style="border:1px solid #eee; padding:8px; text-align:right;">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each items}}
+                    <tr>
+                      <td style="border:1px solid #eee; padding:8px;">{{name}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:center;">{{quantity}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{unit_price}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{line_total}}</td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+
+                <!-- Payment Summary -->
+                {{!-- <table width="100%" cellpadding="8" cellspacing="0" border="0" style="border-top:2px solid #eee; border-bottom:2px solid #eee; margin-bottom:20px; font-size:15px;">
+                  <tr>
+                    <td>Subtotal:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{subtotal}}</td>
+                  </tr>
+                  {{#if discount_total}}
+                  <tr>
+                    <td>Discount:</td>
+                    <td style="text-align:right;">-{{currency_symbol}}{{discount_total}}</td>
+                  </tr>
+                  {{/if}}
+                  <tr>
+                    <td>Shipping ({{shipping_method}}):</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{shipping_amount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tax:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{tax_total}}</td>
+                  </tr>
+                  <tr style="font-weight:bold; border-top:2px solid #CD8973;">
+                    <td>Total:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{total}}</td>
+                  </tr>
+                </table> --}}
+
+                <p style="margin-top:20px; font-size:15px;">We’ll notify you if there are any updates to your shipment. Thank you for shopping with us!</p>
+                <p style="margin-top:15px; font-size:12px; color:#999;">If you have any questions, reply to this email or contact our support team.</p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 Shopenup. All rights reserved.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+

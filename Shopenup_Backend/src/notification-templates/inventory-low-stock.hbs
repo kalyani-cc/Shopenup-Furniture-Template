@@ -1,0 +1,86 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#000000; color:#ffffff; text-align:center; padding:30px; font-size:26px; font-weight:bold;">
+                ⚠️ Low Stock Alert
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding:30px;">
+                <p style="margin:0 0 15px 0; font-size:16px; line-height:1.6;">
+                  Hello Admin,
+                </p>
+                <p style="margin:0 0 15px 0; font-size:16px; line-height:1.6;">
+                  A product has reached low stock levels and requires your attention:
+                </p>
+
+                <!-- Product Information -->
+                <div style="background-color:#f9f9f9; border-left:4px solid #000000; padding:15px; margin:20px 0;">
+                  <p style="margin:0 0 10px 0; font-size:18px; font-weight:bold; color:#000000;">
+                    {{product_title}}
+                  </p>
+                  <p style="margin:0 0 5px 0; font-size:14px; color:#666;">
+                    <strong>SKU:</strong> {{variant_sku}}
+                  </p>
+                  <p style="margin:0 0 5px 0; font-size:14px; color:#666;">
+                    <strong>Product ID:</strong> {{product_id}}
+                  </p>
+                  <p style="margin:0 0 5px 0; font-size:14px; color:#666;">
+                    <strong>Inventory ID:</strong> {{inventory_id}}
+                  </p>
+                </div>
+
+                <!-- Stock Information -->
+                <table width="100%" cellpadding="8" cellspacing="0" border="0" style="border:1px solid #eee; margin:20px 0; border-collapse:collapse; font-size:15px;">
+                  <tr style="background-color:#fff3cd;">
+                    <td style="border:1px solid #eee; padding:12px; font-weight:bold;">Current Quantity:</td>
+                    <td style="border:1px solid #eee; padding:12px; color:#856404; font-weight:bold; font-size:18px;">{{current_quantity}}</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid #eee; padding:12px;">Threshold:</td>
+                    <td style="border:1px solid #eee; padding:12px;">{{threshold}}</td>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid #eee; padding:12px;">Status:</td>
+                    <td style="border:1px solid #eee; padding:12px; color:#dc3545; font-weight:bold;">{{status}}</td>
+                  </tr>
+                </table>
+
+                <!-- Action Button -->
+                <div style="text-align:center; margin:25px 0;">
+                  <a href="{{product_link}}" style="display:inline-block; background-color:#000000; color:#ffffff; padding:12px 30px; text-decoration:none; border-radius:5px; font-weight:bold; font-size:16px;">
+                    View Product in Admin
+                  </a>
+                </div>
+
+                <!-- Divider -->
+                <hr style="border:none; border-top:1px solid #eee; margin:20px 0;" />
+
+                <p style="margin-top:20px; font-size:14px; line-height:1.6; color:#666;">
+                  Please review the inventory levels and consider restocking this product to avoid stockouts.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 {{store_name}}. All rights reserved.
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+

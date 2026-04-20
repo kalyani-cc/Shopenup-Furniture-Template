@@ -1,0 +1,82 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#000000; color:#ffffff; text-align:center; padding:30px; font-size:26px; font-weight:bold;">
+                🎉 Back in Stock!
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding:30px;">
+                <p style="margin:0 0 15px 0; font-size:16px; line-height:1.6;">
+                  Hello,
+                </p>
+                <p style="margin:0 0 15px 0; font-size:16px; line-height:1.6;">
+                  Great news! The product you were interested in is now back in stock:
+                </p>
+
+                <!-- Product Information -->
+                <div style="background-color:#f9f9f9; border-left:4px solid #000000; padding:15px; margin:20px 0;">
+                  <p style="margin:0 0 10px 0; font-size:18px; font-weight:bold; color:#000000;">
+                    {{product_title}}
+                  </p>
+                  {{#if variant_title}}
+                  <p style="margin:0 0 5px 0; font-size:14px; color:#666;">
+                    <strong>Variant:</strong> {{variant_title}}
+                  </p>
+                  {{/if}}
+                  {{#if variant_sku}}
+                  <p style="margin:0 0 5px 0; font-size:14px; color:#666;">
+                    <strong>SKU:</strong> {{variant_sku}}
+                  </p>
+                  {{/if}}
+                </div>
+
+                <!-- Action Button -->
+                <div style="text-align:center; margin:25px 0;">
+                  {{#if product_url}}
+                  <a href="{{product_url}}" style="display:inline-block; background-color:#000000; color:#ffffff; padding:12px 30px; text-decoration:none; border-radius:5px; font-weight:bold; font-size:16px;">
+                    Shop Now
+                  </a>
+                  {{else}}
+                  <a href="{{store_url}}/products" style="display:inline-block; background-color:#000000; color:#ffffff; padding:12px 30px; text-decoration:none; border-radius:5px; font-weight:bold; font-size:16px;">
+                    Visit Store
+                  </a>
+                  {{/if}}
+                </div>
+
+                <!-- Divider -->
+                <hr style="border:none; border-top:1px solid #eee; margin:20px 0;" />
+
+                <p style="margin-top:20px; font-size:14px; line-height:1.6; color:#666;">
+                  We thought you'd want to know that this item is now available. Don't wait too long - stock is limited!
+                </p>
+
+                <p style="margin-top:15px; font-size:12px; line-height:1.6; color:#999;">
+                  You're receiving this email because you subscribed to be notified when this product is back in stock. 
+                  If you no longer wish to receive these notifications, you can unsubscribe by clicking here.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 {{store_name}}. All rights reserved.
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+

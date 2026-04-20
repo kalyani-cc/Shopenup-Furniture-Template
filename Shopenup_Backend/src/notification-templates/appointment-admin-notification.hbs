@@ -1,0 +1,144 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+            
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#000000; color:#ffffff; text-align:center; padding:30px; font-size:26px; font-weight:bold;">
+                 New Appointment Booking
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding:30px;">
+                <h2 style="margin:0 0 15px 0; color:#000000;">New Appointment Received</h2>
+                <p style="margin:0 0 20px 0; font-size:16px; line-height:1.6;">
+                  A new appointment has been booked. Please review the details below.
+                </p>
+
+                <!-- Appointment Details Box -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f9f9f9; border:1px solid #eee; border-radius:6px; margin:20px 0;">
+                  <tr>
+                    <td style="padding:20px;">
+                      <h3 style="margin:0 0 15px 0; color:#000000; font-size:18px;">Appointment Information</h3>
+                      
+                      <table width="100%" cellpadding="5" cellspacing="0" border="0" style="font-size:15px;">
+                        <tr>
+                          <td style="padding:8px 0; font-weight:bold;">Date:</td>
+                          <td style="padding:8px 0;">{{appointmentDate}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:8px 0; font-weight:bold;">Time:</td>
+                          <td style="padding:8px 0;">{{startTime}} - {{endTime}}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Patient Information -->
+                <div style="margin:20px 0;">
+                  <h3 style="margin:0 0 15px 0; color:#000000; font-size:18px;">Patient Information</h3>
+                  
+                  <table width="100%" cellpadding="5" cellspacing="0" border="0" style="font-size:15px; border:1px solid #eee; border-radius:6px;">
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; width:40%; background:#f9f9f9;">Full Name:</td>
+                      <td style="padding:10px;">{{fullName}}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Gender:</td>
+                      <td style="padding:10px;">{{gender}}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Date of Birth:</td>
+                      <td style="padding:10px;">{{dateOfBirth}}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Age:</td>
+                      <td style="padding:10px;">{{age}}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Email:</td>
+                      <td style="padding:10px;">{{email}}</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Mobile Number:</td>
+                      <td style="padding:10px;">{{mobileNumber}}</td>
+                    </tr>
+                    {{#if address}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Address:</td>
+                      <td style="padding:10px;">
+                        {{address}}{{#if city}}, {{city}}{{/if}}{{#if state}}, {{state}}{{/if}}{{#if pincode}} - {{pincode}}{{/if}}
+                      </td>
+                    </tr>
+                    {{/if}}
+                  </table>
+                </div>
+
+                <!-- Health Information -->
+                {{#if hasHealthInfo}}
+                <div style="margin:20px 0;">
+                  <h3 style="margin:0 0 15px 0; color:#000000; font-size:18px;">Health Information</h3>
+                  
+                  <table width="100%" cellpadding="5" cellspacing="0" border="0" style="font-size:15px; border:1px solid #eee; border-radius:6px;">
+                    {{#if symptoms}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; width:40%; background:#f9f9f9;">Symptoms:</td>
+                      <td style="padding:10px;">{{symptoms}}</td>
+                    </tr>
+                    {{/if}}
+                    {{#if durationOfSymptoms}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Duration of Symptoms:</td>
+                      <td style="padding:10px;">{{durationOfSymptoms}}</td>
+                    </tr>
+                    {{/if}}
+                    {{#if existingConditions}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Existing Conditions:</td>
+                      <td style="padding:10px;">{{existingConditions}}</td>
+                    </tr>
+                    {{/if}}
+                    {{#if currentMedications}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Current Medications:</td>
+                      <td style="padding:10px;">{{currentMedications}}</td>
+                    </tr>
+                    {{/if}}
+                    {{#if allergies}}
+                    <tr>
+                      <td style="padding:10px; font-weight:bold; background:#f9f9f9;">Allergies:</td>
+                      <td style="padding:10px;">{{allergies}}</td>
+                    </tr>
+                    {{/if}}
+                  </table>
+                </div>
+                {{/if}}
+
+                <p style="margin-top:20px; font-size:16px; line-height:1.6;">
+                  Best regards,<br />
+                  <strong>{{store_name}}</strong>
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 {{store_name}}. All rights reserved. <br />
+                This is an automated notification from the appointment booking system.
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+

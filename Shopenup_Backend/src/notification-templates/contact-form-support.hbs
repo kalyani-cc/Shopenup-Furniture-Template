@@ -1,0 +1,28 @@
+<body style="margin:0;padding:0;font-family:Arial,sans-serif;background-color:#f4f4f4;color:#333;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center" style="padding:20px 0;">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          <tr>
+            <td style="background-color:#1a1a1a;color:#ffffff;text-align:center;padding:24px 20px;font-size:20px;font-weight:bold;">
+              New contact form message
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px 30px;">
+              <p style="margin:0 0 16px 0;font-size:15px;"><strong>Subject:</strong> {{subject}}</p>
+              <p style="margin:0 0 8px 0;font-size:15px;"><strong>Name:</strong> {{name}}</p>
+              <p style="margin:0 0 8px 0;font-size:15px;"><strong>Email:</strong> <a href="mailto:{{email}}" style="color:#2563eb;">{{email}}</a></p>
+              <p style="margin:0 0 20px 0;font-size:15px;"><strong>Phone:</strong> {{phone}}</p>
+              <p style="margin:0 0 8px 0;font-size:15px;font-weight:bold;">Message</p>
+              <p style="margin:0;padding:14px;background-color:#f9fafb;border-radius:8px;font-size:14px;line-height:1.5;white-space:pre-wrap;">{{message}}</p>
+              {{#if store_name}}
+              <p style="margin:24px 0 0 0;font-size:12px;color:#6b7280;">{{store_name}}{{#if store_url}} · <a href="{{store_url}}" style="color:#6b7280;">Store</a>{{/if}}</p>
+              {{/if}}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>

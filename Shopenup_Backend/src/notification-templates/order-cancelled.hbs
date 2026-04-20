@@ -1,0 +1,124 @@
+<body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center" style="padding: 20px 0;">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#000000; color:#ffffff; text-align:center; padding:30px 20px; font-size:26px; font-weight:bold;">
+              Order Cancelled ❌
+            </td>
+          </tr>
+          
+          <!-- Greeting -->
+          <tr>
+            <td style="padding:25px 30px;">
+              <p style="font-size:18px; margin:0 0 10px 0;">Hi {{first_name}},</p>
+              <p style="margin:0 0 20px 0;">We're sorry to inform you that your order has been <strong>cancelled</strong>.</p>
+
+              <!-- Order ID -->
+              <p style="margin:0 0 20px 0;">Order ID: <strong>{{order_id}}</strong></p>
+
+              <!-- Cancellation Reason -->
+              {{#if cancellation_reason}}
+              <div style="background-color:#f8f9fa; border-left:4px solid #000000; padding:15px; margin-bottom:20px;">
+                <h4 style="margin:0 0 8px 0; color:#000000; font-size:16px;">Cancellation Reason:</h4>
+                <p style="margin:0; font-size:14px; color:#666;">{{cancellation_reason}}</p>
+              </div>
+              {{/if}}
+
+              <!-- Refund Information -->
+              <div style="background-color:#e8f5e8; border-left:4px solid #27ae60; padding:15px; margin-bottom:20px;">
+                <h4 style="margin:0 0 8px 0; color:#27ae60; font-size:16px;">Refund Information:</h4>
+                <p style="margin:0; font-size:14px; color:#666;">
+                  {{#if refund_amount}}
+                    A refund of <strong>{{currency_symbol}}{{refund_amount}}</strong> will be processed to your original payment method within 3-5 business days.
+                  {{else}}
+                    A refund will be processed to your original payment method within 3-5 business days.
+                  {{/if}}
+                </p>
+              </div>
+
+              <!-- Shipping & Billing -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+                <tr>
+                  <td style="vertical-align:top; padding-right:15px;">
+                    <h4 style="margin:0 0 5px 0; color:#000000; font-size:16px;">Shipping Address</h4>
+                    <p style="margin:0; font-size:14px;">{{address_1}} {{address_2}}</p>
+                    <p style="margin:0; font-size:14px;">Phone: {{phone}}</p>
+                  </td>
+                  <td style="vertical-align:top; padding-left:15px;">
+                    <h4 style="margin:0 0 5px 0; color:#000000; font-size:16px;">Billing Address</h4>
+                    <p style="margin:0; font-size:14px;">{{billing_address_1}} {{billing_address_2}}</p>
+                    <p style="margin:0; font-size:14px;">Phone: {{billing_phone}}</p>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Order Items -->
+              <h3 style="margin-bottom:10px; color:#000000; font-size:20px;">Cancelled Items</h3>
+              <table width="100%" cellpadding="8" cellspacing="0" border="0"
+                style="border:1px solid #eee; margin-bottom:20px; border-collapse:collapse; font-size:15px;">
+                <thead>
+                  <tr style="background-color:#f9f9f9; text-align:left;">
+                    <th style="border:1px solid #eee; padding:8px;">Product</th>
+                    <th style="border:1px solid #eee; padding:8px;">Qty</th>
+                    <th style="border:1px solid #eee; padding:8px; text-align:right;">Price</th>
+                    <th style="border:1px solid #eee; padding:8px; text-align:right;">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each items}}
+                  <tr>
+                    <td style="border:1px solid #eee; padding:8px;">{{name}}</td>
+                    <td style="border:1px solid #eee; padding:8px; text-align:center;">{{quantity}}</td>
+                    <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{unit_price}}</td>
+                    <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{line_total}}</td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+              
+              <!-- Payment Summary -->
+              <table width="100%" cellpadding="8" cellspacing="0" border="0" style="border-top:2px solid #eee; border-bottom:2px solid #eee; margin-bottom:20px; font-size:15px;">
+                <tr>
+                  <td>Subtotal:</td>
+                  <td style="text-align:right;">{{currency_symbol}}{{subtotal}}</td>
+                </tr>
+                {{#if discount_total}}
+                <tr>
+                  <td>Discount:</td>
+                  <td style="text-align:right;">-{{currency_symbol}}{{discount_total}}</td>
+                </tr>
+                {{/if}}
+                <tr>
+                  <td>Shipping ({{shipping_method}}):</td>
+                  <td style="text-align:right;">{{currency_symbol}}{{shipping_amount}}</td>
+                </tr>
+                <tr>
+                  <td>Tax:</td>
+                  <td style="text-align:right;">{{currency_symbol}}{{tax_total}}</td>
+                </tr>
+                <tr style="font-weight:bold; border-top:2px solid #000000;">
+                  <td>Total (Refunded):</td>
+                  <td style="text-align:right;">{{currency_symbol}}{{total}}</td>
+                </tr>
+              </table>
+
+              <p style="margin-top:20px; font-size:15px;">We apologize for any inconvenience caused. If you have any questions about this cancellation or would like to place a new order, please don't hesitate to contact our support team.</p>
+              <p style="margin-top:15px; font-size:12px; color:#999;">If you have any questions, reply to this email or contact our support team.</p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+              &copy; 2025 Shopenup. All rights reserved.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>

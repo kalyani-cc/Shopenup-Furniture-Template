@@ -1,0 +1,47 @@
+{
+  "name": "@shopenup/logistic",
+  "version": "1.0.0",
+  "description": "Comprehensive Shiprocket integration package for end-to-end logistics management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "keywords": [
+    "shiprocket",
+    "logistics",
+    "shipping",
+    "ecommerce",
+    "fulfillment",
+    "courier",
+    "delivery"
+  ],
+  "author": "Shopenup",
+  "license": "MIT",
+  "dependencies": {
+    "@shopenup/logistic": "file:.yalc/@shopenup/logistic",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shopenup/logistic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shopenup/logistic/issues"
+  },
+  "homepage": "https://github.com/shopenup/logistic#readme",
+  "yalcSig": "6cf6cfd3f54cc4cb8444c4a0a749c52b"
+}

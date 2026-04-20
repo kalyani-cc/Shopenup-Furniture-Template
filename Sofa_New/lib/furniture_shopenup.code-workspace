@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Template_New/Shopenup_Stage/Shopenup_Backend"
+		},
+		{
+			"path": "../../../Template_New/Shopenup_Stage/Shopenup_Storefront"
+		}
+	],
+	"settings": {}
+}

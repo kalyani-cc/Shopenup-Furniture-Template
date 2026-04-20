@@ -1,0 +1,111 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+            
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#000000; color:#ffffff; text-align:center; padding:30px; font-size:26px; font-weight:bold;">
+                ❌ Appointment Cancelled
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding:30px;">
+                <h2 style="margin:0 0 15px 0; color:#dc3545;">Hi {{fullName}},</h2>
+                <p style="margin:0 0 15px 0; font-size:16px; line-height:1.6;">
+                  We're sorry to inform you that your appointment has been cancelled.
+                </p>
+
+                <!-- Cancelled Appointment Details Box -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fff3cd; border:1px solid #ffc107; border-radius:6px; margin:20px 0;">
+                  <tr>
+                    <td style="padding:20px;">
+                      <h3 style="margin:0 0 15px 0; color:#856404; font-size:18px;">Cancelled Appointment Details</h3>
+                      
+                      <table width="100%" cellpadding="5" cellspacing="0" border="0" style="font-size:15px;">
+                        <tr>
+                          <td style="padding:8px 0; font-weight:bold; width:40%;">Date:</td>
+                          <td style="padding:8px 0;">{{appointmentDate}}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:8px 0; font-weight:bold;">Time:</td>
+                          <td style="padding:8px 0;">{{startTime}} - {{endTime}}</td>
+                        </tr>
+                        {{!-- {{#if cancellationReason}}
+                        <tr>
+                          <td style="padding:8px 0; font-weight:bold;">Reason:</td>
+                          <td style="padding:8px 0;">{{cancellationReason}}</td>
+                         </tr>
+                        {{/if}} --}}
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Reschedule CTA -->
+                <div style="background:#e7f3ff; border-left:4px solid #2196F3; padding:20px; margin:20px 0; border-radius:4px;">
+                  <h3 style="margin:0 0 10px 0; color:#1976D2; font-size:18px;">Reschedule Your Appointment</h3>
+                  <p style="margin:0 0 15px 0; font-size:15px; line-height:1.6;">
+                    We understand this may be inconvenient. Please use the link below to book a new appointment at your convenience.
+                  </p>
+                  <div style="text-align:center; margin-top:15px;">
+                    <a href="{{rescheduleUrl}}" style="display:inline-block; padding:12px 30px; background-color:#000000; color:#ffffff; text-decoration:none; border-radius:6px; font-weight:bold; font-size:16px;">
+                      Book New Appointment
+                    </a>
+                  </div>
+                  {{#if rescheduleUrl}}
+                  <p style="margin-top:15px; margin-bottom:0; font-size:13px; color:#666; text-align:center;">
+                    Or copy this link: <br />
+                    <span style="word-break:break-all; color:#1976D2;">{{rescheduleUrl}}</span>
+                  </p>
+                  {{/if}}
+                </div>
+
+                <!-- Contact Information -->
+                {{#if address}}
+                <div style="margin:20px 0;">
+                  <h4 style="margin:0 0 10px 0; color:#000000; font-size:16px;">Your Contact Information</h4>
+                  <p style="margin:5px 0; font-size:14px;">
+                    <strong>Email:</strong> {{email}}<br />
+                    <strong>Mobile:</strong> {{mobileNumber}}<br />
+                    {{#if address}}<strong>Address:</strong> {{address}}{{/if}}
+                    {{#if city}}, {{city}}{{/if}}
+                    {{#if state}}, {{state}}{{/if}}
+                    {{#if pincode}} - {{pincode}}{{/if}}
+                  </p>
+                </div>
+                {{/if}}
+
+                <p style="margin-top:30px; font-size:16px; line-height:1.6;">
+                  If you have any questions or need assistance with rescheduling, please don't hesitate to contact us.
+                </p>
+
+                <p style="margin-top:20px; font-size:16px; line-height:1.6;">
+                  We apologize for any inconvenience caused.<br />
+                  <strong>The {{store_name}} Team</strong>
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 {{store_name}}. All rights reserved. <br />
+                You received this email because your appointment at {{store_name}} was cancelled.
+                {{#if store_url}}
+                <br /><a href="{{store_url}}" style="color:#000000; text-decoration:none;">Visit our website</a>
+                {{/if}}
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+

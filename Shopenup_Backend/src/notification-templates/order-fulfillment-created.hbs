@@ -1,0 +1,142 @@
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color:#f4f4f4; color:#333;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td align="center" style="padding: 20px 0;">
+          <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
+            
+            <!-- Header -->
+            <tr>
+              <td style="background-color:#CD8973; color:#ffffff; text-align:center; padding:30px 20px; font-size:26px; font-weight:bold;">
+                Your Order is Ready to Ship! 📦
+              </td>
+            </tr>
+            
+            <!-- Greeting -->
+            <tr>
+              <td style="padding:25px 30px;">
+                <p style="font-size:18px; margin:0 0 10px 0;">Hi {{first_name}},</p>
+                <p style="margin:0 0 20px 0;">Great news! Your order <strong>#{{order_display_id}}</strong> has been processed and is ready to ship.</p>
+
+                <!-- Tracking Information Box -->
+                {{#if tracking_id}}
+                <div style="background-color:#f9f9f9; border-left:4px solid #CD8973; padding:20px; margin:20px 0; border-radius:5px;">
+                  <h3 style="margin:0 0 15px 0; color:#CD8973; font-size:20px;">📦 Tracking Information</h3>
+                  <p style="margin:5px 0; font-size:16px; line-height:1.8;">
+                    <strong>AWB Code:</strong> <span style="font-family:monospace; font-size:18px; color:#333;">{{tracking_id}}</span><br/>
+                    <strong>Courier:</strong> {{carrier}}<br/>
+                    {{#if tracking_url}}
+                    <strong>Track Your Shipment:</strong><br/>
+                    <a href="{{tracking_url}}" 
+                       style="display:inline-block; background-color:#CD8973; color:#ffffff; padding:12px 30px; text-decoration:none; border-radius:5px; margin-top:10px; font-weight:bold; font-size:16px;">
+                      Track Order →
+                    </a>
+                    {{/if}}
+                  </p>
+                </div>
+                {{/if}}
+
+                <!-- Shipping Details -->
+                {{!-- <div style="background-color:#f9f9f9; padding:15px; margin:20px 0; border-radius:5px;">
+                  <h3 style="margin:0 0 10px 0; color:#CD8973; font-size:18px;">🚚 Shipping Details</h3>
+                  <p style="margin:5px 0; font-size:15px; line-height:1.6;">
+                    <strong>Shipping Address:</strong><br/>
+                    <span style="display:block; margin-top:5px; padding-left:10px;">
+                      {{address_1}} {{address_2}}<br/>
+                      {{city}}, {{state}}, {{country}}
+                    </span>
+                    {{#if phone}}
+                    <strong>Contact:</strong> {{phone}}<br/>
+                    {{/if}}
+                    {{#if estimated_delivery}}
+                    <strong>Estimated Delivery:</strong> {{estimated_delivery}}
+                    {{/if}}
+                  </p>
+                </div> --}}
+
+                <!-- Order Items Table -->
+                <h3 style="margin:20px 0 10px 0; color:#CD8973; font-size:20px;">Your Order Items</h3>
+                <table width="100%" cellpadding="8" cellspacing="0" border="0"
+                  style="border:1px solid #eee; margin-bottom:20px; border-collapse:collapse; font-size:15px;">
+                  <thead>
+                    <tr style="background-color:#f9f9f9; text-align:left;">
+                      <th style="border:1px solid #eee; padding:8px;">Product</th>
+                      <th style="border:1px solid #eee; padding:8px;">Qty</th>
+                      <th style="border:1px solid #eee; padding:8px; text-align:right;">Price</th>
+                      <th style="border:1px solid #eee; padding:8px; text-align:right;">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each items}}
+                    <tr>
+                      <td style="border:1px solid #eee; padding:8px;">{{name}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:center;">{{quantity}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{unit_price}}</td>
+                      <td style="border:1px solid #eee; padding:8px; text-align:right;">{{../currency_symbol}}{{line_total}}</td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+
+                <!-- Payment Summary -->
+                {{!-- <table width="100%" cellpadding="8" cellspacing="0" border="0" style="border-top:2px solid #eee; border-bottom:2px solid #eee; margin-bottom:20px; font-size:15px;">
+                  <tr>
+                    <td>Subtotal:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{subtotal}}</td>
+                  </tr>
+                  {{#if discount_total}}
+                  <tr>
+                    <td>Discount:</td>
+                    <td style="text-align:right;">-{{currency_symbol}}{{discount_total}}</td>
+                  </tr>
+                  {{/if}}
+                  <tr>
+                    <td>Shipping ({{shipping_method}}):</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{shipping_amount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Tax:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{tax_total}}</td>
+                  </tr>
+                  <tr style="font-weight:bold; border-top:2px solid #CD8973;">
+                    <td>Total:</td>
+                    <td style="text-align:right;">{{currency_symbol}}{{total}}</td>
+                  </tr>
+                </table> --}}
+
+                <!-- Call to Action -->
+                {{#if tracking_url}}
+                <div style="text-align:center; margin:30px 0;">
+                  <a href="{{tracking_url}}" 
+                     style="display:inline-block; background-color:#CD8973; color:#ffffff; padding:15px 40px; text-decoration:none; border-radius:5px; font-weight:bold; font-size:18px;">
+                    Track Your Shipment →
+                  </a>
+                </div>
+                {{/if}}
+
+                <p style="margin-top:20px; font-size:15px; line-height:1.6;">
+                  Your order is now in transit! You can track its progress using the AWB code above or by clicking the tracking button. 
+                  We'll notify you when your package is out for delivery.
+                </p>
+                <p style="margin-top:15px; font-size:12px; color:#999;">
+                  If you have any questions about your shipment, reply to this email or contact our support team at {{store_name}}.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="background-color:#f4f4f4; color:#999; text-align:center; padding:15px; font-size:12px;">
+                &copy; 2025 {{store_name}}. All rights reserved.
+                {{#if storefront_url}}
+                <br/><a href="{{storefront_url}}" style="color:#CD8973; text-decoration:none;">Visit our store</a>
+                {{/if}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+
