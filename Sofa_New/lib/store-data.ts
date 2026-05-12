@@ -36,6 +36,8 @@ export type BlogPost = {
   category: string;
   author: string;
   excerpt: string;
+  image?: string;
+  content?: any;
 };
 
 export const navItems: NavItem[] = [

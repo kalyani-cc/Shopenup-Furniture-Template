@@ -24,7 +24,7 @@ export function CollectionCard({ collection, image, productsCount = 0 }: Collect
             <img
               src={image}
               alt={title}
-              className="aspect-[2/1] h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              className="aspect-[2/1] h-full w-full object-contain bg-stone-50 transition duration-300 group-hover:scale-[1.03]"
               loading="lazy"
             />
           ) : (

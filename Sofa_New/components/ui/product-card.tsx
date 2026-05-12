@@ -15,9 +15,9 @@ export function ProductCard({ product }: ProductCardProps) {
         <Image
           src={product.image}
           alt={product.name}
-          className="mb-4 h-44 w-full rounded-xl bg-stone-100 object-cover"
+          className="mb-4 h-52 w-full rounded-xl bg-stone-50 object-contain"
           width={400}
-          height={176}
+          height={208}
         />
       ) : (
         <div className="mb-4 h-44 rounded-xl bg-stone-100" />

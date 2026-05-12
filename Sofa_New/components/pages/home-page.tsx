@@ -3,7 +3,7 @@ import Link from "next/link";
 import { listCategories } from "@/lib/shopenup/categories";
 import { listCollections } from "@/lib/shopenup/collections";
 import { listProducts } from "@/lib/shopenup/product";
-import { blogPosts } from "@/lib/store-data";
+import { listBlogPosts } from "@/lib/shopenup/blog";
 import { BlogCard } from "@/components/ui/blog-card";
 import { CategoryCard } from "@/components/ui/category-card";
 import { CollectionCard } from "@/components/ui/collection-card";
@@ -12,7 +12,11 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { HomeHeroBanner } from "@/components/pages/home-hero-banner";
 
 export async function HomePage() {
-  const [products, collections] = await Promise.all([listProducts(), listCollections()]);
+  const [products, collections, blogPosts] = await Promise.all([
+    listProducts(),
+    listCollections(),
+    listBlogPosts(3),
+  ]);
   const categories = await listCategories(100, products);
   const collectionsWithHandles = collections.filter((c) => c.handle);
   const productsByCategory = new Map<string, (typeof products)[number][]>();

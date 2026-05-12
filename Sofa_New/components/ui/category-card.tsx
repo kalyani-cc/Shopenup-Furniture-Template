@@ -16,7 +16,7 @@ export function CategoryCard({ category, image }: CategoryCardProps) {
             <img
               src={image}
               alt={category.name}
-              className="aspect-[2/1] h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+              className="aspect-[2/1] h-full w-full object-contain bg-stone-50 transition duration-300 group-hover:scale-[1.03]"
               loading="lazy"
             />
           ) : (

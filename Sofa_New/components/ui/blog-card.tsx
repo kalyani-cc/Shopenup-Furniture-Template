@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BlogPost } from "@/lib/store-data";
 
 type BlogCardProps = {
@@ -8,7 +9,16 @@ type BlogCardProps = {
 export function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="rounded-2xl border border-stone-200 bg-white p-5 shadow-card">
-      <div className="mb-4 h-40 rounded-xl bg-stone-100" />
+      <div className="relative mb-4 h-40 overflow-hidden rounded-xl bg-stone-100">
+        {post.image && (
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+          />
+        )}
+      </div>
       <p className="text-xs uppercase tracking-wide text-stone-500">
         {post.date} • {post.category} • {post.author}
       </p>
