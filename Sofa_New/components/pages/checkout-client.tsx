@@ -17,6 +17,14 @@ import { formatCurrency } from "@/lib/utils";
 
 type CheckoutStep = "contact" | "delivery" | "shipping" | "payment" | "review";
 
+const PAYMENT_LABELS: Record<string, string> = {
+  pp_razorpay_razorpay: "Razorpay",
+  pp_system_default: "Cash on Delivery",
+  manual: "Manual Payment",
+  stripe: "Stripe",
+};
+
+
 export function CheckoutClient() {
   const router = useRouter();
   const [step, setStep] = useState<CheckoutStep>("contact");
@@ -293,7 +301,10 @@ export function CheckoutClient() {
                       checked={selectedPayment === provider.id}
                       onChange={() => setSelectedPayment(provider.id)}
                     />
-                    <span className="text-sm text-stone-700">{provider.id}</span>
+                    <span className="text-sm text-stone-700">
+                      {PAYMENT_LABELS[provider.id] || provider.id}
+                    </span>
+
                   </label>
                 ))
               ) : (
@@ -308,7 +319,10 @@ export function CheckoutClient() {
                 {isPaymentApplied ? "Payment Applied" : "Continue to Review"}
               </button>
               {isPaymentApplied ? (
-                <p className="text-xs text-green-700">Applied: {selectedPayment}</p>
+                <p className="text-xs text-green-700">
+                  Applied: {PAYMENT_LABELS[selectedPayment] || selectedPayment}
+                </p>
+
               ) : null}
             </div>
           ) : (

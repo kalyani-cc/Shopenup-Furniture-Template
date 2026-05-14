@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/ui/add-to-cart-button";
 import { FavouriteToggleButton } from "@/components/ui/favourite-toggle-button";
 import { ProductCard } from "@/components/ui/product-card";
+import { ProductReviews } from "@/components/ui/product-reviews";
+
 import { getProductByHandle, getProductById, listProductsByCategory } from "@/lib/shopenup/product";
 import { formatCurrency } from "@/lib/utils";
 
@@ -74,7 +76,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
 
+      <ProductReviews productId={product.id || ""} />
+
       {relatedProducts.length ? (
+
         <section className="mt-14 border-t border-stone-200 pt-10">
           <div className="mb-6 flex items-end justify-between gap-4">
             <div>
