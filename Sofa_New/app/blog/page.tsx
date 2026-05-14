@@ -1,8 +1,10 @@
 import { PageHero } from "@/components/pages/page-hero";
 import { BlogCard } from "@/components/ui/blog-card";
-import { blogPosts } from "@/lib/store-data";
+import { listBlogPosts } from "@/lib/shopenup/blog";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogPosts = await listBlogPosts();
+
   return (
     <main>
       <PageHero

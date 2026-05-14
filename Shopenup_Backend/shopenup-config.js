@@ -53,11 +53,6 @@ module.exports = defineConfig({
       options: {
       },
     },
-    {
-      resolve: "@shopenup/shopenup-plugin-doctor-appointment",
-      options: {
-      },
-    },
   ],
   modules: [
     {

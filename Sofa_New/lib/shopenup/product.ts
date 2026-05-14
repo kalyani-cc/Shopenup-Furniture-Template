@@ -49,6 +49,19 @@ type ProductRating = {
   total_reviews: number;
 };
 
+export type StoreReview = {
+  id: string;
+  product_id?: string | null;
+  customer_id?: string | null;
+  first_name?: string | null;
+  last_name?: string | null;
+  title?: string | null;
+  content?: string | null;
+  rating?: number | null;
+  created_at?: string | null;
+};
+
+
 let cachedRegionId: string | null = null;
 
 /** Optional fixed region (same idea as passing region_id for storefront pricing). */
@@ -293,6 +306,70 @@ async function fetchRatingsForProductIds(productIds: string[]): Promise<Record<s
     return {};
   }
 }
+
+export async function listProductReviews(productId: string): Promise<StoreReview[]> {
+  if (!productId) {
+    return [];
+  }
+  try {
+    const response = await sdk.client.fetch<any>(`/store/products/${productId}/reviews`, {
+      cache: "no-store",
+      headers: await getCompleteHeaders(),
+    });
+
+    const raw =
+      (Array.isArray(response.reviews) && response.reviews) ||
+      (Array.isArray(response.data) && response.data) ||
+      (Array.isArray(response.items) && response.items) ||
+      (response.review && Array.isArray(response.review.items) ? response.review.items : []);
+
+
+    const extracted = (raw || [])
+      .map((item: any) => {
+        if (!item || typeof item !== "object") return null;
+        return {
+          id: item.id || Math.random().toString(36).slice(2),
+          product_id: item.product_id,
+          customer_id: item.customer_id,
+          first_name: item.first_name,
+          last_name: item.last_name,
+          title: item.title,
+          content: item.content,
+          rating: item.rating,
+          created_at: item.created_at,
+        } as StoreReview;
+      })
+      .filter((r: StoreReview | null): r is StoreReview => Boolean(r && r.rating != null));
+
+    if (extracted.length > 0) {
+      return extracted;
+    }
+
+    // Fallback: If no individual reviews, check for summary ratings
+    if (Array.isArray(response.ratings)) {
+      const summary = response.ratings.find((r: any) => r.product_id === productId);
+      if (summary && summary.total_reviews > 0) {
+        return [
+          {
+            id: `summary-${productId}`,
+            product_id: productId,
+            title: "Customer Rating Summary",
+            content: `There are ${summary.total_reviews} verified rating(s) for this product.`,
+            rating: summary.average_rating,
+            created_at: new Date().toISOString(),
+          },
+        ];
+      }
+    }
+
+    return [];
+
+
+  } catch {
+    return [];
+  }
+}
+
 
 export async function listProducts(limit = 100): Promise<Product[]> {
   try {

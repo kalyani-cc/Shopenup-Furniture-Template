@@ -94,10 +94,13 @@ export function FavouritesClient() {
                       return;
                     }
                     await addToCart(item.variantId, 1);
+                    await removeFromWishlist(item.variantId);
+                    await load();
                   } catch (e) {
                     setError(e instanceof Error ? e.message : "Failed to add to cart.");
                   }
                 }}
+
               >
                 Add to Cart
               </button>

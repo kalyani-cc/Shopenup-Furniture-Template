@@ -41,7 +41,7 @@
     "@shopenup/dashboard": "^1.0.10-test.2",
     "@shopenup/framework": "1.0.10",
     "@shopenup/icons": "^1.0.10",
-    "@shopenup/logistic": "file:.yalc/@shopenup/logistic",
+    "@shopenup/logistic": "1.0.10",
     "@shopenup/shopenup": "1.0.11",
     "@shopenup/shopenup-plugin-blog": "1.0.10",
     "@shopenup/shopenup-plugin-doctor-appointment": "1.0.10",
